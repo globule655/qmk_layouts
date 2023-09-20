@@ -29,6 +29,7 @@ enum layer_names {
 enum {
   TD_NUM,
   TD_BASE,
+  TD_FUNC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -36,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
       KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                       KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
       KC_HOME, GUI_A, ALT_S, SFT_D, CTL_F, KC_G,                  KC_H, CTL_J, SFT_K, ALT_L, GUI_SCLN, KC_QUOT,
-      KC_END, KC_Z, KC_X, KC_C, KC_V, KC_B,                       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ESC,
+      KC_END, KC_Z, KC_X, KC_C, KC_V, KC_B,                       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TD(TD_FUNC),
                     TD(TD_NUM), MO(_NAV), KC_ENT,                 KC_SPC, MO(_SYMB), KC_RALT
 
                     ),
@@ -86,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
       KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,                   KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_PSCR, KC_SCRL, KC_PAUS, XXXXXXX, XXXXXXX, XXXXXXX,
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_INS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_INS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TD(TD_FUNC),
                     _______, _______, _______,                    _______, _______, _______
 
                     ),
@@ -104,7 +105,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 tap_dance_action_t tap_dance_actions[] = {
   [TD_NUM] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _NUM),
-  [TD_BASE] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _BASE)
+  [TD_BASE] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _BASE),
+  [TD_FUNC] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ESC, _FUNC)
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
