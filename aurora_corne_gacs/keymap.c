@@ -32,6 +32,13 @@ enum {
   TD_FUNC,
 };
 
+//Combos
+const uint16_t PROGMEM CMB_RBRC[] = {KC_MINS, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM CMB_ACCENTED_E1[] = {KC_Z, KC_E, COMBO_END};
+const uint16_t PROGMEM CMB_ACCENTED_E2[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM CMB_QUOTE[] = {KC_R, KC_T, COMBO_END};
+
+//Layers definition
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
 
@@ -45,8 +52,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAV] = LAYOUT_split_3x6_3(
 
-      KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5,                        KC_6, KC_7, KC_8, KC_9, KC_0, KC_DELETE,
-      KC_PGUP, _______, _______, _______, _______, XXXXXXX,        KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_MINS, KC_EQL,
+      KC_1, KC_2, KC_3, KC_4, KC_5, KC_6,                          KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_DELETE,
+      KC_PGUP, _______, _______, _______, _______, XXXXXXX,        KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_LBRC, KC_EQL,
       KC_PGDN, XXXXXXX, KC_CUT, KC_COPY, KC_PSTE, LCTL(KC_B),      KC_APP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     _______, _______, _______,                    _______, MO(_CONF), _______
 
@@ -55,8 +62,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYMB] = LAYOUT_split_3x6_3(
 
-      _______, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV,
+      KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, XXXXXXX,
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
                     _______, MO(_CONF), _______,                      _______, _______, _______
 
@@ -107,6 +114,13 @@ tap_dance_action_t tap_dance_actions[] = {
   [TD_NUM] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _NUM),
   [TD_BASE] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _BASE),
   [TD_FUNC] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ESC, _FUNC)
+};
+
+combo_t key_combos[] = {
+    COMBO(CMB_RBRC, KC_EQL),
+    COMBO(CMB_ACCENTED_E1, KC_2),
+    COMBO(CMB_ACCENTED_E2, KC_7),
+    COMBO(CMB_QUOTE, KC_4),
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
