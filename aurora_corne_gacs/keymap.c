@@ -37,6 +37,8 @@ const uint16_t PROGMEM CMB_RBRC[] = {KC_MINS, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM CMB_ACCENTED_E1[] = {KC_Z, KC_E, COMBO_END};
 const uint16_t PROGMEM CMB_ACCENTED_E2[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM CMB_QUOTE[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM CMB_CCEDILLE[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM CMB_ACCENTED_A[] = {KC_O, KC_P, COMBO_END};
 
 //Layers definition
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -121,6 +123,8 @@ combo_t key_combos[] = {
     COMBO(CMB_ACCENTED_E1, KC_2),
     COMBO(CMB_ACCENTED_E2, KC_7),
     COMBO(CMB_QUOTE, KC_4),
+    COMBO(CMB_CCEDILLE, KC_9),
+    COMBO(CMB_ACCENTED_A, KC_0),
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
