@@ -41,7 +41,7 @@ enum combos {
     CMB_CCEDILLE,
     CMB_ACCENTED_A,
     CMB_DASH,
-}
+};
 
 const uint16_t PROGMEM cmb_rbrc[] = {KC_MINS, KC_DELETE, COMBO_END};
 const uint16_t PROGMEM cmb_accented_e1[] = {KC_Z, KC_E, COMBO_END};
