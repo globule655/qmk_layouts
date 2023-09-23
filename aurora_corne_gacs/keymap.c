@@ -33,12 +33,33 @@ enum {
 };
 
 //Combos
-const uint16_t PROGMEM CMB_RBRC[] = {KC_MINS, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM CMB_ACCENTED_E1[] = {KC_Z, KC_E, COMBO_END};
-const uint16_t PROGMEM CMB_ACCENTED_E2[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM CMB_QUOTE[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM CMB_CCEDILLE[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM CMB_ACCENTED_A[] = {KC_O, KC_P, COMBO_END};
+enum combos {
+    CMB_RBRC,
+    CMB_ACCENTED_E1,
+    CMB_ACCENTED_E2,
+    CMB_QUOTE,
+    CMB_CCEDILLE,
+    CMB_ACCENTED_A,
+    CMB_DASH,
+}
+
+const uint16_t PROGMEM cmb_rbrc[] = {KC_MINS, KC_DELETE, COMBO_END};
+const uint16_t PROGMEM cmb_accented_e1[] = {KC_Z, KC_E, COMBO_END};
+const uint16_t PROGMEM cmb_accented_e2[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM cmb_quote[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM cmb_ccedille[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM cmb_accented_a[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM cmb_dash[] = {KC_U, KC_I, COMBO_END};
+
+combo_t key_combos[] = {
+    [CMB_RBRC] = COMBO(cmb_rbrc, KC_EQL),
+    [CMB_ACCENTED_E1] = COMBO(cmb_accented_e1, KC_2),
+    [CMB_ACCENTED_E2] = COMBO(cmb_accented_e2, KC_7),
+    [CMB_QUOTE] = COMBO(cmb_quote, KC_4),
+    [CMB_CCEDILLE] = COMBO(cmb_ccedille, KC_9),
+    [CMB_ACCENTED_A] = COMBO(cmb_accented_a, KC_0),
+    [CMB_DASH] = COMBO(cmb_dash, KC_6),
+};
 
 //Layers definition
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -116,15 +137,6 @@ tap_dance_action_t tap_dance_actions[] = {
   [TD_NUM] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _NUM),
   [TD_BASE] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _BASE),
   [TD_FUNC] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ESC, _FUNC)
-};
-
-combo_t key_combos[] = {
-    COMBO(CMB_RBRC, KC_EQL),
-    COMBO(CMB_ACCENTED_E1, KC_2),
-    COMBO(CMB_ACCENTED_E2, KC_7),
-    COMBO(CMB_QUOTE, KC_4),
-    COMBO(CMB_CCEDILLE, KC_9),
-    COMBO(CMB_ACCENTED_A, KC_0),
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
