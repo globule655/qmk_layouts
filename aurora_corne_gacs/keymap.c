@@ -67,16 +67,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                       KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
       KC_HOME, GUI_A, ALT_S, CTL_D, SFT_F, KC_G,                  KC_H, SFT_J, CTL_K, ALT_L, GUI_SCLN, KC_QUOT,
       KC_END, KC_Z, KC_X, KC_C, KC_V, KC_B,                       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TD(TD_FUNC),
-                    TD(TD_NUM), MO(_NAV), KC_ENT,                 KC_SPC, MO(_SYMB), KC_RALT
+                    MO(_NUM), MO(_NAV), KC_ENT,                 KC_SPC, MO(_SYMB), KC_RALT
 
                     ),
 
 
   [_NAV] = LAYOUT_split_3x6_3(
 
-      KC_1, KC_2, KC_3, KC_4, KC_5, KC_6,                          KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_DELETE,
+      _______, KC_1, KC_2, KC_3, KC_4, KC_5,                          KC_6, KC_7, KC_8, KC_9, KC_0, KC_DELETE,
       KC_PGUP, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,        KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_LBRC, KC_EQL,
-      KC_PGDN, XXXXXXX, KC_CUT, KC_COPY, KC_PSTE, LCTL(KC_B),      KC_APP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_PGDN, XXXXXXX, KC_CUT, KC_COPY, KC_PSTE, LCTL(KC_B),      KC_MINS, KC_EQL, XXXXXXX, XXXXXXX, XXXXXXX, KC_APP,
                     _______, _______, _______,                    _______, MO(_CONF), _______
 
                     ),
@@ -133,7 +133,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 tap_dance_action_t tap_dance_actions[] = {
-  [TD_NUM] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _NUM),
   [TD_BASE] = ACTION_TAP_DANCE_LAYER_MOVE(KC_LGUI, _BASE),
   [TD_FUNC] = ACTION_TAP_DANCE_LAYER_MOVE(KC_ESC, _FUNC)
 };
