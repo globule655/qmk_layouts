@@ -26,7 +26,6 @@ enum layer_names {
 };
 
 enum {
-  TD_NUM,
   TD_BASE,
   TD_FUNC,
 };
