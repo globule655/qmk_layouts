@@ -144,8 +144,3 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
-#ifdef OLED_ENABLE
-void suspend_power_down_user(void) {
-  oled_off();
-}
-#endif
