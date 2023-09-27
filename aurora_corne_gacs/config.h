@@ -4,10 +4,10 @@
 // dual-role key, all within the tapping term, by default the dual-role key
 // will perform its tap action. If the HOLD_ON_OTHER_KEY_PRESS option is
 // enabled, the dual-role key will perform its hold action instead.
-#define HOLD_ON_OTHER_KEY_PRESS
+//#define HOLD_ON_OTHER_KEY_PRESS
 // When enabled, typing a mod-tap plus second within term will register as the mod-combo
 // Ref: https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold#permissive-hold 
-#define PERMISSIVE_HOLD
+//#define PERMISSIVE_HOLD
 
 
 #ifdef RGB_MATRIX_ENABLE
