@@ -22,6 +22,7 @@ enum layer_names {
   _CONF,
   _NUM,
   _FUNC,
+  _GAMING,
   _EMPTY,
 };
 
@@ -95,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_CONF] = LAYOUT_split_3x6_3(
 
       QK_BOOT, LCTL(LALT(KC_DEL)), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       TG(_BASE), TG(_NAV), TG(_SYMB), TG(_CONF), TG(_NUM), TG(_FUNC),
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                  TG(_EMPTY), TG(7), TG(8), TG(9), TG(10), TG(11),
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                  TG(_GAMING), TG(_EMPTY), TG(8), TG(9), TG(10), TG(11),
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                  TG(12), TG(13), TG(14), TG(15), XXXXXXX, XXXXXXX,
                     _______, _______, _______,                               _______, _______, _______
 
@@ -118,6 +119,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,       KC_PSCR, KC_SCRL, KC_PAUS, XXXXXXX, XXXXXXX, XXXXXXX,
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_INS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TD(TD_BASE),
                     _______, _______, _______,                    _______, _______, _______
+
+                    ),
+
+
+  [_GAMING] = LAYOUT_split_3x6_3(
+
+      KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                       KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
+      XXXXXXX, KC_A, KC_S, KC_D, KC_F, KC_G,                      KC_H, SFT_J, CTL_K, ALT_L, GUI_SCLN, MO(_FUNC),
+      KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B,                      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ESC,
+                    KC_LALT, KC_LCTL, KC_SPC,                     KC_ENT, MO(_NAV), TD(TD_BASE)
 
                     ),
 
