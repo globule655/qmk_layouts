@@ -1,5 +1,5 @@
-#include "QMK_KEYBOARD_H"
-#include "keymap_fr.h"
+#include QMK_KEYBOARD_H
+#include <keymap_french.h>
 #include <stdio.h>
 
 // Left-hand home row mods
