@@ -1,4 +1,5 @@
-#include QMK_KEYBOARD_H
+#include "QMK_KEYBOARD_H"
+#include "keymap_fr.h"
 #include <stdio.h>
 
 // Left-hand home row mods
@@ -86,8 +87,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_SYMB] = LAYOUT_split_3x6_3(
 
       KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,           KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-      _______, _______, _______, _______, _______, XXXXXXX,       KC_MINS, KC_PLUS, KC_LBRC, KC_RBRC, KC_BSLS, KC_NUBS,
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_UNDS, KC_EQL, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
+      _______, _______, _______, _______, _______, XXXXXXX,       FR_MINS, FR_PLUS, FR_CIRC, FR_DLR, FR_ASTR, FR_PIPE,
+      _______, FR_LABK, FR_RABK, XXXXXXX, XXXXXXX, XXXXXXX,       FR_LPRN, FR_RPRN, FR_LCBR, FR_RCBR, FR_LBRC, FR_RBRC,
                     _______, MO(_CONF), _______,                      _______, _______, _______
 
                     ),
