@@ -1,0 +1,25 @@
+stages:
+  - build
+
+QMK_build:
+  stage: build
+  variables:
+    KEYBS_PATH: "/root/qmk_firmware/keyboards"
+    kbusername: "globule"
+  image: python:3.10
+  before_script:
+    - apt update -qy
+    - apt install -y build-essential avr-libc binutils-arm-none-eabi binutils-avr dfu-programmer dfu-util gcc gcc-arm-none-eabi libnewlib-arm-none-eabi gcc-avr avrdude
+    - pip install qmk
+    - 'qmk setup --yes'
+  script: 
+    - "cp -r $CI_COMMIT_BRANCH/$($CI_COMMIT_TAG|awk -F- '{print $1}') $KEYBS_PATH/qmk_firmware/keyboards/$($CI_COMMIT_BRANCH|awk -F_ '{print $1}')/$($CI_COMMIT_BRANCH|awk -F_ '{print $2}')/$($CI_COMMIT_BRANCH|awk -F_ '{print $3}')/keymaps/$kbusername.$CI_COMMIT_TAG"
+    - qmk compile -kb "$($CI_COMMIT_BRANCH|awk -F_ '{print $1}')/$($CI_COMMIT_BRANCH|awk -F_ '{print $2}')/$($CI_COMMIT_BRANCH|awk -F_ '{print $3}')/$($CI_COMMIT_BRANCH|awk -F_ '{print $4}')" -km "$kbusername.$CI_COMMIT_TAG" -e CONVERT_TO=elite_pi
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+    paths:
+      - ./*.hex
+      - ./*.bin
+    expire_in: 1 month
+  except:
+    - main
